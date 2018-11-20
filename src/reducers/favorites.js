@@ -12,7 +12,7 @@ const initialState = {
 }
 
 // favoritesReducer: handles all actions that take place on favorites route
-export const favoritesReducer = (state = initialState, action) => {
+export default (state = initialState, action) => {
   if (action.type === FETCH_FAVORITES_REQUEST) {
     return Object.assign({}, state, {
       loading: true,

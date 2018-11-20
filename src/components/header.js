@@ -17,7 +17,7 @@ export default class Header extends React.Component {
     return (
       <div>
         <div>
-          <img className="dota2_logo" src="https://image.flaticon.com/icons/svg/588/588267.svg"></img>
+          <img className="dota2_logo" src="https://image.flaticon.com/icons/svg/588/588267.svg" alt="dota2 logo"></img>
           <h1 className="title">Hero Tracker</h1>
         </div>
         <div>

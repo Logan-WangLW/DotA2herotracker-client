@@ -14,15 +14,11 @@ class HeroesList extends React.Component {
 
       // let heroImgArray = this.props.heroes.map(hero => `https://api.opendota.com${hero.img}`)
 
-      this.props.heroes.forEach((hero, index) => {
-        this.props.heroes[index].img = `https://api.opendota.com${hero.img}`
-      })
-
       return (
         <li key={index} id={hero.id}>
           <div>
             <label>{hero.localized_name}</label>
-            <img src={hero.img} alt={hero.id}></img>
+            <img src={`https://api.opendota.com${hero.img}`} alt={hero.id}></img>
           </div>
         </li >
       )
@@ -37,7 +33,8 @@ class HeroesList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  heroes: state.heroes.heroes
+  heroes: state.heroes.heroes,
+  user: state.auth.currentUser
 })
 
 export default connect(mapStateToProps)(HeroesList);

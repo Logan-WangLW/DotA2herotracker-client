@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import heroReducer from './reducers/heroes';
 import authReducer from './reducers/auth';
+import favoriteReducer from './reducers/favorites';
 import protectedDataReducer from './reducers/protected-data';
 import thunk from 'redux-thunk';
 import { setAuthToken, refreshAuthToken } from './actions/auth.js';
@@ -13,7 +14,8 @@ const store = createStore(
     form: formReducer,
     auth: authReducer,
     protectedData: protectedDataReducer,
-    heroes: heroReducer
+    heroes: heroReducer,
+    favorites: favoriteReducer
   }),
   composeWithDevTools(applyMiddleware(thunk))
 );
