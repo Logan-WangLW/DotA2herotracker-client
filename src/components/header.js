@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from './menu.js';
-
+import './header.css';
 export default class Header extends React.Component {
 
   state = {
@@ -17,7 +17,8 @@ export default class Header extends React.Component {
     return (
       <div>
         <div>
-          <h1>DotA2 Hero Tracker</h1>
+          <img className="dota2_logo" src="https://image.flaticon.com/icons/svg/588/588267.svg"></img>
+          <h1 className="title">Hero Tracker</h1>
         </div>
         <div>
           <button

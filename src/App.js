@@ -11,7 +11,6 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Header />
-
           <HeroesList />
         </div>
       </Router>

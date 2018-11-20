@@ -7,31 +7,25 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-  switch (action.type) {
-    case FETCH_HEROES_REQUEST: {
-      console.log('fetch heroes request');
-      return {
-        ...state,
-        loading: true,
-        error: null
-      };
-    }
-    case FETCH_HEROES_SUCCESS: {
-      return {
-        ...state,
-        heroes: action.heroes,
-        loading: false
-      };
-    }
-    case FETCH_HEROES_ERROR: {
-      return {
-        ...state,
-        loading: false,
-        error: action.error
-      };
-    }
-    default: {
-      return state;
-    }
+  if (action.type === FETCH_HEROES_REQUEST) {
+    return Object.assign({}, state, {
+      loading: true,
+      error: null
+    })
   }
+  else if (action.type === FETCH_HEROES_SUCCESS) {
+    return Object.assign({}, state, {
+      loading: false,
+      error: null,
+      heroes: action.heroes
+    })
+  }
+  else if (action.type === FETCH_HEROES_ERROR) {
+    return Object.assign({}, state, {
+      loading: false,
+      error: action.error
+    })
+  }
+  return state;
 }
+

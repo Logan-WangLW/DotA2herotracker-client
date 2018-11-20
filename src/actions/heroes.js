@@ -1,4 +1,5 @@
 import { API_BASE_URL } from '../config';
+import { normalizeResponseErrors } from './utils';
 
 export const FETCH_HEROES_REQUEST = 'FETCH_HEROES_REQUEST';
 export const fetchHeroesRequest = () => ({
@@ -20,9 +21,17 @@ export const fetchHeroesError = error => ({
 export const fetchHeroes = () => dispatch => {
   dispatch(fetchHeroesRequest());
   return fetch(`${API_BASE_URL}/herostats`)
+    .then(res => normalizeResponseErrors(res))
     .then(res =>
-      console.log(res.json())
+      //console.log(res.json())
+      res.json()
     )
-    .then(heroes => dispatch(fetchHeroesSuccess(heroes)))
+    .then(heroes => {
+      // console.log('HEROES: ', heroes)
+      //let heroArray = heroes.map(hero => `https://api.opendota.com${hero.img}`);
+      //console.log('HERO ARRAY: ', heroArray)
+      dispatch(fetchHeroesSuccess(heroes))
+    }
+    )
     .catch(err => dispatch(fetchHeroesError(err)));
 };
