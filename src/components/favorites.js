@@ -10,14 +10,21 @@ export class Favorites extends React.Component {
 
     return (
       <div>
-        <h1> LOL </h1>
+        <h1> My Favorites </h1>
+        <ul>
+          {this.props.userFavorites.map(fav => (
+            <li key={fav}>{fav}</li>
+          ))}
+        </ul>
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-
+  userFavorites: state.favorites.userFavorites
 })
 
 export default connect(mapStateToProps)(Favorites);
+
+/*  */

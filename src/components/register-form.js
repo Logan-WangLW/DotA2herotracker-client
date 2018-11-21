@@ -3,6 +3,7 @@ import { Field, reduxForm, focus } from 'redux-form';
 import Input from './input.js';
 import { connect } from 'react-redux';
 import { login, registerUser } from '../actions/auth.js';
+import { Redirect } from 'react-router';
 import { required, isTrimmed, nonEmpty, length, matches } from '../validators.js';
 
 const passwordLength = length({ min: 6, max: 72 });
@@ -21,7 +22,9 @@ export class SignUpForm extends React.Component {
   }
 
   render() {
-
+    if (this.props.submitSucceeded) {
+      return <Redirect to="/" />
+    }
     let error;
     if (this.props.error) {
       error = (

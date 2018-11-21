@@ -1,11 +1,10 @@
 import React from 'react';
 import Header from './components/header';
-import HeroesList from './components/heroes-list';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import LandingInfo from './components/landing-info';
 import { connect } from 'react-redux';
 import Favorites from './components/favorites';
-
+import HeroesList from './components/heroes-list';
 class App extends React.Component {
   render() {
     return (
@@ -13,6 +12,7 @@ class App extends React.Component {
         <div className="App">
           <Header />
           <Route exact path='/' component={LandingInfo} />
+          <Route exact path='/heroes' component={HeroesList} />
           <Route exact path='/favorites' component={Favorites} />
         </div>
       </Router>

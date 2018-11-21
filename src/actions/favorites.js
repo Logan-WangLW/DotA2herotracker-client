@@ -33,9 +33,9 @@ export const fetchFavorites = () => (dispatch, getState) => {
     .then(res =>
       res.json()
     )
-    .then(favorites => {
-      console.log(favorites);
-      dispatch(fetchFavoritesSuccess(favorites))
+    .then(res => {
+      console.log(res);
+      dispatch(fetchFavoritesSuccess(res.heroes))
     })
     .catch(err => dispatch(fetchFavoritesError(err)));
 };

@@ -7,10 +7,10 @@ class HeroesList extends React.Component {
     this.props.dispatch(fetchHeroes());
   }
   render() {
-    console.log(this.props.heroes);
-    //update img to include link
-    console.log(this.props.heroes[0]);
-    const heroes = this.props.heroes.map((hero, index) => {
+    // console.log(this.props.heroes);
+
+    // console.log(this.props.heroes[0]);
+    let strHeroes = this.props.heroes.filter(hero => hero.primary_attr === 'str').map((hero, index) => {
 
       // let heroImgArray = this.props.heroes.map(hero => `https://api.opendota.com${hero.img}`)
 
@@ -22,10 +22,48 @@ class HeroesList extends React.Component {
           </div>
         </li >
       )
-    })
+    });
+    let agiHeroes = this.props.heroes.filter(hero => hero.primary_attr === 'agi').map((hero, index) => {
+
+      // let heroImgArray = this.props.heroes.map(hero => `https://api.opendota.com${hero.img}`)
+
+      return (
+        <li key={index} id={hero.id}>
+          <div>
+            <label>{hero.localized_name}</label>
+            <img src={`https://api.opendota.com${hero.img}`} alt={hero.id}></img>
+          </div>
+        </li >
+      )
+    });
+    let intHeroes = this.props.heroes.filter(hero => hero.primary_attr === 'int').map((hero, index) => {
+
+      // let heroImgArray = this.props.heroes.map(hero => `https://api.opendota.com${hero.img}`)
+
+      return (
+        <li key={index} id={hero.id}>
+          <div>
+            <label>{hero.localized_name}</label>
+            <img src={`https://api.opendota.com${hero.img}`} alt={hero.id}></img>
+          </div>
+        </li >
+      )
+    });
+
     return (
       <ul>
-        {heroes}
+        <div>
+          <h3>STRENGTH</h3>
+          {strHeroes}
+        </div>
+        <div>
+          <h3>AGILITY</h3>
+          {agiHeroes}
+        </div>
+        <div>
+          <h3>INTELLIGENCE</h3>
+          {intHeroes}
+        </div>
       </ul >
     )
   }
