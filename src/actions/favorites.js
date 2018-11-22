@@ -30,16 +30,58 @@ export const fetchFavorites = () => (dispatch, getState) => {
     }
   })
     .then(res => normalizeResponseErrors(res))
-    .then(res =>
-      res.json()
-    )
+    .then(res => res.json())
     .then(res => {
-      console.log(res);
-      dispatch(fetchFavoritesSuccess(res.heroes))
+      console.log(res)
+      dispatch(fetchFavoritesSuccess(res))
     })
     .catch(err => dispatch(fetchFavoritesError(err)));
 };
 
 //add a favorite
+export const ADD_FAVORITES_REQUEST = 'ADD_FAVORITES_REQUEST';
+export const addFavoritesRequest = () => ({
+  type: ADD_FAVORITES_REQUEST
+});
 
+export const ADD_FAVORITES_SUCCESS = 'ADD_FAVORITES_SUCCESS';
+export const addFavoritesSuccess = (favorites) => ({
+  type: ADD_FAVORITES_SUCCESS
+});
+
+export const ADD_FAVORITES_ERROR = 'ADD_FAVORITES_ERROR';
+export const addFavoritesError = error => ({
+  type: ADD_FAVORITES_ERROR,
+  error
+});
+
+export const addFavoriteToUser = (id) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  dispatch(addFavoritesRequest());
+  fetch(`${API_BASE_URL}/favorites/${id}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${authToken}`
+    },
+  })
+    .then(result => result.json())
+    .then(favorites => {
+      dispatch(addFavoritesSuccess(favorites))
+    })
+}
 //delete a favorite
+export const deleteFavoriteToUser = (id) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  fetch(`${API_BASE_URL}/favorites/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${authToken}`
+    },
+  })
+    .then(result => result.json())
+    .then(favorites => {
+      dispatch(fetchFavoritesSuccess(favorites))
+    })
+}

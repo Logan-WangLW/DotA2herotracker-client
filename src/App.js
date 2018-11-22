@@ -1,11 +1,13 @@
 import React from 'react';
 import Header from './components/header';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import LandingInfo from './components/landing-info';
 import { connect } from 'react-redux';
 import Favorites from './components/favorites';
 import HeroesList from './components/heroes-list';
+
 class App extends React.Component {
+
   render() {
     return (
       <Router>
@@ -13,7 +15,10 @@ class App extends React.Component {
           <Header />
           <Route exact path='/' component={LandingInfo} />
           <Route exact path='/heroes' component={HeroesList} />
-          <Route exact path='/favorites' component={Favorites} />
+          <Route exact path='/favorites' render={() => {
+            return this.props.authToken ? (<Favorites />) : (<Redirect to="/" />)
+          }}
+          />
         </div>
       </Router>
     );

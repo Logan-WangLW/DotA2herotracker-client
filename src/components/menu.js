@@ -15,7 +15,9 @@ export class Menu extends React.Component {
     return (
       <nav>
         <p><Link to={'/'}>Home</Link></p>
+        <p><Link to={'/heroes'}> Heroes </Link> </p>
         <p><Link to={'/favorites'}>My Favorites</Link></p>
+
         <button
           onClick={() => this.logOut()}>sign out</button>
       </nav>
