@@ -20,8 +20,8 @@ export class Favorites extends React.Component {
     let favorites;
     const username = this.props.user ? this.props.user.username : '';
     if (this.props.heroes.length > 0) {
-      favorites = this.props.userFavorites.map((fav, index) => {
-        let hero = this.props.heroes.find(hero => hero.id == fav.heroes);
+      favorites = this.props.userFavorites.map((fav) => {
+        let hero = this.props.heroes.find(hero => hero.id === Number(fav.heroes));
         //console.log(hero, this.props.heroes);
         return (
           <li key={fav.id}>
