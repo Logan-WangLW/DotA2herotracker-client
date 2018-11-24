@@ -12,11 +12,6 @@ export class Favorites extends React.Component {
 
   render() {
 
-    //let heroesImg = this.props.heroes.map(hero => `https://api.opendota.com${hero.img}`)
-    //console.log(heroesId);
-    //console.log(heroesImg);
-    //console.log(this.props.heroes);
-    // console.log(this.props.userFavorites);
     let favorites;
     const username = this.props.user ? this.props.user.username : '';
     if (this.props.heroes.length > 0) {

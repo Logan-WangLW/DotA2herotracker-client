@@ -12,10 +12,10 @@ class HeroesList extends React.Component {
       isHidden: !this.props.isHidden
     })
   }
+
   addFavorite(id) {
     return this.props.dispatch(addFavoriteToUser(id));
   }
-
 
   render() {
     // console.log(this.props.heroes);
@@ -23,55 +23,54 @@ class HeroesList extends React.Component {
     // console.log(this.props.heroes[0]);
     let strHeroes = this.props.heroes.filter(hero => hero.primary_attr === 'str').map((hero, index) => {
       return (
-        <li key={index} id={hero.id}>
+        <td key={index} id={hero.id}>
           <div >
-            <label >{hero.localized_name}</label>
-            <img src={`https://api.opendota.com${hero.img}`} alt={hero.id} ></img>
+            <img src={`https://api.opendota.com${hero.img}`} alt={hero.localized_name} ></img>
             <button onClick={() => this.addFavorite(hero.id)}>Add to my favorites</button>
           </div>
-        </li >
+        </td >
       )
     });
     let agiHeroes = this.props.heroes.filter(hero => hero.primary_attr === 'agi').map((hero, index) => {
       return (
-        <li key={index} id={hero.id}>
+        <td key={index} id={hero.id}>
           <div>
-            <label>{hero.localized_name}</label>
-            <img src={`https://api.opendota.com${hero.img}`} alt={hero.id} ></img>
+            <img src={`https://api.opendota.com${hero.img}`} alt={hero.localized_name} ></img>
+            <button onClick={() => this.addFavorite(hero.id)}>Add to my favorites</button>
           </div>
-        </li >
+        </td >
       )
     });
     let intHeroes = this.props.heroes.filter(hero => hero.primary_attr === 'int').map((hero, index) => {
       return (
-        <li key={index} id={hero.id}>
+        <td key={index} id={hero.id}>
           <div>
-            <label>{hero.localized_name}</label>
-            <img src={`https://api.opendota.com${hero.img}`} alt={hero.id} ></img>
+            <img src={`https://api.opendota.com${hero.img}`} alt={hero.localized_name} ></img>
+            <button onClick={() => this.addFavorite(hero.id)}>Add to my favorites</button>
           </div>
-        </li >
+        </td >
       )
     });
 
     return (
+      <table>
+        <tbody>
+          <tr>
+            <th>STRENGTH</th>
+          </tr>
+          <tr>{strHeroes}</tr>
+          <tr>
+            <th>AGILITY</th>
+          </tr>
+          <tr>{agiHeroes}</tr>
+          <tr>
+            <th>INTELLIGENCE</th>
+          </tr>
+          <tr>{intHeroes}</tr>
+        </tbody>
+      </table>
 
 
-      <ul>
-        <h2>Heroes List</h2>
-        <button onClick={() => this.addFavorite()}>Add to my favorites</button>
-        <div>
-          <h3>STRENGTH</h3>
-          {strHeroes}
-        </div>
-        <div>
-          <h3>AGILITY</h3>
-          {agiHeroes}
-        </div>
-        <div>
-          <h3>INTELLIGENCE</h3>
-          {intHeroes}
-        </div>
-      </ul >
     )
   }
 
@@ -84,3 +83,19 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps)(HeroesList);
+// // {/* <ul>
+// <h2>Heroes List</h2>
+
+// <div>
+//   <h3>STRENGTH</h3>
+//   {strHeroes}
+// </div>
+// <div>
+//   <h3>AGILITY</h3>
+//   {agiHeroes}
+// </div>
+// <div>
+//   <h3>INTELLIGENCE</h3>
+//   {intHeroes}
+// </div>
+// </ul > */}
