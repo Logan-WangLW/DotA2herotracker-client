@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { clearAuth } from '../actions/auth.js';
 import { clearAuthToken } from '../local-storage.js';
 import { connect } from 'react-redux';
+import './menu.css';
 
 export class Menu extends React.Component {
 
@@ -13,7 +14,7 @@ export class Menu extends React.Component {
 
   render() {
     return (
-      <nav>
+      <nav className="nav-menu">
         <p><Link to={'/'}>Home</Link></p>
         <p><Link to={'/heroes'}> Heroes </Link> </p>
         <p><Link to={'/favorites'}>My Favorites</Link></p>

@@ -1,8 +1,8 @@
-.dota2_logo{
+#dota2_logo{
   height: 50px;
   width: 50px;
 }
 
-.title{
+#header-title{
   display:inline-block;
 }

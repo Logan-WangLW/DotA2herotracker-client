@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { login, registerUser } from '../actions/auth.js';
 import { Redirect } from 'react-router';
 import { required, isTrimmed, nonEmpty, length, matches } from '../validators.js';
+import './register-form.css';
 
 const passwordLength = length({ min: 6, max: 72 });
 const usernameLength = length({ min: 3, max: 12 })
@@ -23,7 +24,7 @@ export class SignUpForm extends React.Component {
 
   render() {
     if (this.props.submitSucceeded) {
-      return <Redirect to="/" />
+      return <Redirect to="/heroes" />
     }
     let error;
     if (this.props.error) {
@@ -43,23 +44,29 @@ export class SignUpForm extends React.Component {
         {error}
         <label htmlFor="username">User Name</label>
         <Field
+          className="form-input"
           component={Input}
           type='text'
           name="username"
+          id="username"
           validate={[required, usernameLength, nonEmpty]}
         />
         <label htmlFor="password">Password</label>
         <Field
+          className="form-input"
           component={Input}
           type='password'
           name="password"
+          id="password"
           validate={[required, nonEmpty, passwordLength, isTrimmed]}
         />
         <label htmlFor="passwordConfirm">Confirm Password</label>
         <Field
+          className="form-input"
           component={Input}
           type='password'
           name="passwordConfirm"
+          id="passwordConfirm"
           validate={[required, matchesPassword, nonEmpty]}
         />
         <button

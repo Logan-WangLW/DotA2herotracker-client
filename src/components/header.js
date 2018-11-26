@@ -15,13 +15,14 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <img className="dota2_logo" src="https://image.flaticon.com/icons/svg/588/588267.svg" alt="dota2 logo"></img>
-          <h1 className="title">Hero Tracker</h1>
+      <div className="header-box">
+        <div className="header-content">
+          <img id="dota2_logo" src="https://image.flaticon.com/icons/svg/588/588267.svg" alt="dota2 logo"></img>
+          <h1 id="header-title">Hero Tracker</h1>
         </div>
-        <div>
+        <div className="menu-button-box">
           <button
+            id="menu-button"
             type="button"
             onClick={() => this.toggleMenu()}>Menu</button>
         </div>

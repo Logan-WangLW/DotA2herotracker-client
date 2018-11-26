@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { fetchFavorites, deleteFavoriteToUser } from '../actions/favorites';
 import { fetchHeroes } from '../actions/heroes';
 
+import './favorites.css';
+
 export class Favorites extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchFavorites());
     this.props.dispatch(fetchHeroes());
   }
-
 
   render() {
 
@@ -17,12 +18,11 @@ export class Favorites extends React.Component {
     if (this.props.heroes.length > 0) {
       favorites = this.props.userFavorites.map((fav) => {
         let hero = this.props.heroes.find(hero => hero.id === Number(fav.heroes));
-        //console.log(hero, this.props.heroes);
         return (
           <li key={fav.id}>
-            <div>
-              <img src={`https://api.opendota.com${hero.img}`} alt={hero.localizedname} />
-              <button onClick={() => this.props.dispatch(deleteFavoriteToUser(fav.id))}>Remove</button>
+            <div className="favorite-hero">
+              <img className="favorite-hero-img" src={`https://api.opendota.com${hero.img}`} alt={hero.localizedname} />
+              <button id="delete-favorite-button" onClick={() => this.props.dispatch(deleteFavoriteToUser(fav.id))}>Remove</button>
             </div>
           </li>
         )
@@ -30,11 +30,13 @@ export class Favorites extends React.Component {
     }
 
     return (
-      <div>
+      <div className="favorites-box">
         <h1> {`${username}'s Favorites `}</h1>
-        {this.props.heroes.length > 0 && <ul>
-          {favorites}
-        </ul>}
+        <p>Add heroes by going to the heroes list!</p>
+        {this.props.heroes.length > 0 &&
+          <ul className="favorite-heroes-list">
+            {favorites}
+          </ul>}
       </div>
     )
   }

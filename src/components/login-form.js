@@ -5,7 +5,7 @@ import { login } from '../actions/auth.js';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { required, nonEmpty, isTrimmed } from '../validators.js';
-
+import './login-form.css';
 
 export class LogInForm extends React.Component {
 

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Favorites from './components/favorites';
 import HeroesList from './components/heroes-list';
 
-class App extends React.Component {
+class Home extends React.Component {
 
   render() {
     return (
@@ -29,4 +29,4 @@ const mapStateToProps = state => ({
   authToken: state.auth.authToken
 })
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(Home);

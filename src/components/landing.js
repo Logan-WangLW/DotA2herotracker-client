@@ -2,6 +2,7 @@ import React from 'react';
 import LoginForm from './login-form.js';
 import RegisterForm from './register-form.js';
 import { connect } from 'react-redux';
+import './landing.css';
 
 export class Landing extends React.Component {
   state = {
@@ -31,10 +32,12 @@ export class Landing extends React.Component {
   render() {
     return (<div>
       <button
+        className="login-button"
         type="button"
         onClick={() => this.showLogin()}>Log In</button>
       {!this.state.LoginHidden && <LoginForm />}
       <button
+        className="register-button"
         type="button"
         onClick={() => this.showRegister()}>Sign Up</button>
       {!this.state.RegisterHidden && <RegisterForm />}
@@ -43,8 +46,5 @@ export class Landing extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  loading: state.auth.loading
-})
 
-export default connect(mapStateToProps)(Landing);
+export default connect()(Landing);
