@@ -11,7 +11,7 @@ export class LogInForm extends React.Component {
 
   render() {
     if (this.props.submitSucceeded) {
-      return <Redirect to="/" />
+      return <Redirect to="/favorites" />
     }
     let error;
     if (this.props.error) {

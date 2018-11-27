@@ -1,0 +1,16 @@
+table {
+  border-spacing: 2px;
+  table-layout: fixed;
+  
+}
+
+
+.hero-image{
+  height: 2em;
+  padding: 0px;
+}
+
+.hero-box{
+  display: inline-block;
+}
+

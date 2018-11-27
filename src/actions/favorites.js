@@ -32,7 +32,7 @@ export const fetchFavorites = () => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(res => {
-      console.log(res)
+      console.log('favorites fetched')
       dispatch(fetchFavoritesSuccess(res))
     })
     .catch(err => dispatch(fetchFavoritesError(err)));
@@ -46,7 +46,8 @@ export const addFavoritesRequest = () => ({
 
 export const ADD_FAVORITES_SUCCESS = 'ADD_FAVORITES_SUCCESS';
 export const addFavoritesSuccess = (favorites) => ({
-  type: ADD_FAVORITES_SUCCESS
+  type: ADD_FAVORITES_SUCCESS,
+  favorites
 });
 
 export const ADD_FAVORITES_ERROR = 'ADD_FAVORITES_ERROR';
@@ -85,3 +86,39 @@ export const deleteFavoriteToUser = (id) => (dispatch, getState) => {
       dispatch(fetchFavoritesSuccess(favorites))
     })
 }
+
+//get favorite matchups
+export const FETCH_FAVORITES_MATCHUPS_REQUEST = 'FETCH_FAVORITES_MATCHUPS_REQUEST';
+export const fetchFavoritesMatchupsRequest = () => ({
+  type: FETCH_FAVORITES_MATCHUPS_REQUEST
+});
+
+export const FETCH_FAVORITES_MATCHUPS_SUCCESS = 'FETCH_FAVORITES_MATCHUPS_SUCCESS';
+export const fetchFavoritesMatchupsSuccess = (matchups) => ({
+  type: FETCH_FAVORITES_MATCHUPS_SUCCESS,
+  matchups
+});
+
+export const FETCH_FAVORITES_MATCHUPS_ERROR = 'FETCH_FAVORITES_MATCHUPS_ERROR';
+export const fetchFavoritesMatchupsError = error => ({
+  type: FETCH_FAVORITES_MATCHUPS_ERROR,
+  error
+});
+
+export const fetchFavoritesMatchups = (id) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  dispatch(fetchFavoritesRequest());
+  return fetch(`${API_BASE_URL}/heroes/${id}/matchups`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${authToken}`
+    }
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(res => {
+      dispatch(fetchFavoritesMatchupsSuccess(res))
+    })
+    .catch(err => dispatch(fetchFavoritesMatchupsError(err)));
+};

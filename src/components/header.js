@@ -1,6 +1,27 @@
+// import React from 'react';
+// import Menu from './menu.js';
+// import './header.css';
+// import logo from '../images/dota-2.svg';
+
+// export default class Header extends React.Component {
+
+//   render() {
+//     return (
+//       <div className="header-box">
+//         <div className="header-content">
+//           <img id="dota2_logo" src={logo} alt="dota2 logo"></img>
+//           <h1 id="header-title">Hero Tracker</h1>
+//         </div>
+//         <Menu />
+//       </div>
+//     )
+//   }
+// }
+
 import React from 'react';
 import Menu from './menu.js';
 import './header.css';
+import logo from '../images/dota-2.svg';
 export default class Header extends React.Component {
 
   state = {
@@ -17,8 +38,8 @@ export default class Header extends React.Component {
     return (
       <div className="header-box">
         <div className="header-content">
-          <img id="dota2_logo" src="https://image.flaticon.com/icons/svg/588/588267.svg" alt="dota2 logo"></img>
-          <h1 id="header-title">Hero Tracker</h1>
+          <img id="dota2_logo" src={logo} alt="dota2 logo"></img>
+          <h1 className="header-title">Hero Tracker</h1>
         </div>
         <div className="menu-button-box">
           <button

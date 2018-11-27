@@ -13,18 +13,27 @@ export class Menu extends React.Component {
   }
 
   render() {
+    if (this.props.user) {
+      return (
+        <nav className="nav-menu">
+          <p id="home-button"><Link to={'/'}>Login/Register</Link></p>
+          <p id="heroes-button"><Link to={'/heroes'}> Heroes </Link> </p>
+          <p id="my-favorites-button"><Link to={'/favorites'}>My Favorites</Link></p>
+          <p id="logout-button" onClick={() => this.logOut()}><Link to={'/'}>Sign Out</Link></p>
+        </nav>
+      )
+    }
     return (
       <nav className="nav-menu">
-        <p><Link to={'/'}>Home</Link></p>
-        <p><Link to={'/heroes'}> Heroes </Link> </p>
-        <p><Link to={'/favorites'}>My Favorites</Link></p>
-
-        <button
-          onClick={() => this.logOut()}>sign out</button>
+        <p id="home-button"><Link to={'/'}>Login/Register</Link></p>
+        <p id="heroes-button"><Link to={'/heroes'}> Heroes </Link> </p>
+        <p id="my-favorites-button"><Link to={'/favorites'}>My Favorites</Link></p>
       </nav>
     )
-
   }
 }
+const mapStateToProps = state => ({
+  user: state.auth.currentUser
+})
 
-export default connect()(Menu)
+export default connect(mapStateToProps)(Menu)
