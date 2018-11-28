@@ -89,7 +89,7 @@ export const deleteFavoriteToUser = (id) => (dispatch, getState) => {
 
 //get favorite matchups
 export const FETCH_FAVORITES_MATCHUPS_REQUEST = 'FETCH_FAVORITES_MATCHUPS_REQUEST';
-export const fetchFavoritesMatchupsRequest = () => ({
+export const fetchFavoritesMatchupsRequest = (id) => ({
   type: FETCH_FAVORITES_MATCHUPS_REQUEST
 });
 
@@ -108,6 +108,7 @@ export const fetchFavoritesMatchupsError = error => ({
 export const fetchFavoritesMatchups = (id) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchFavoritesRequest());
+  console.log('matchupid', id);
   return fetch(`${API_BASE_URL}/heroes/${id}/matchups`, {
     method: 'GET',
     headers: {
@@ -118,6 +119,7 @@ export const fetchFavoritesMatchups = (id) => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(res => {
+      console.log('matchups', res);
       dispatch(fetchFavoritesMatchupsSuccess(res))
     })
     .catch(err => dispatch(fetchFavoritesMatchupsError(err)));

@@ -30,6 +30,7 @@ export const fetchHeroes = () => dispatch => {
       //console.log('HEROES: ', heroes)
       //let heroArray = heroes.map(hero => `https://api.opendota.com${hero.img}`);
       //console.log('HERO ARRAY: ', heroArray)
+      console.log('heroes fetched')
       dispatch(fetchHeroesSuccess(heroes))
     }
     )

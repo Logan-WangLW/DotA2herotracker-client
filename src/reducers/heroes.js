@@ -1,7 +1,11 @@
 import { FETCH_HEROES_ERROR, FETCH_HEROES_SUCCESS, FETCH_HEROES_REQUEST } from '../actions/heroes';
 
 const initialState = {
-  heroes: [],
+  heroes: {
+    int: [],
+    str: [],
+    agi: []
+  },
   loading: false,
   error: null
 };

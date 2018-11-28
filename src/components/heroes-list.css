@@ -8,9 +8,12 @@ table {
 .hero-image{
   height: 2em;
   padding: 0px;
+  pointer-events: none;
+  cursor: default;
 }
 
 .hero-box{
   display: inline-block;
+  cursor: pointer;
 }
 
