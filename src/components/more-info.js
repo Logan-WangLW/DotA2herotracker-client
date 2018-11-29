@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchHeroes } from '../actions/heroes';
 import { fetchFavoritesMatchups } from '../actions/favorites';
-
+import { API_BASE_URL } from '../config';
 import './more-info.css';
 
 export class Moreinfo extends React.Component {
@@ -16,7 +16,7 @@ export class Moreinfo extends React.Component {
   }
 
   getHero = () => {
-    fetch(`http://localhost:8080/heroes/${this.props.match.params.heroId}`).then(res => res.json())
+    fetch(`${API_BASE_URL}/heroes/${this.props.match.params.heroId}`).then(res => res.json())
       .then(hero => {
         this.setState({
           hero
