@@ -1,0 +1,12 @@
+.hero-info-box h1{
+  text-align: center;
+}
+
+.hero-info-box ul{
+  display:table; margin:0 auto;
+}
+
+.winrate-heroes{
+  list-style:none;
+  padding-left:0px;
+}

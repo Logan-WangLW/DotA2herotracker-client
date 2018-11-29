@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { login, registerUser } from '../actions/auth.js';
 import { Redirect } from 'react-router';
 import { required, isTrimmed, nonEmpty, length, matches } from '../validators.js';
-import './register-form.css';
+import './login-form.css';
 
 const passwordLength = length({ min: 6, max: 72 });
 const usernameLength = length({ min: 3, max: 12 })
@@ -38,6 +38,7 @@ export class SignUpForm extends React.Component {
 
     return (
       <form
+        className="login-form"
         onSubmit={this.props.handleSubmit(values => {
           this.onSubmit(values);
         })}>
@@ -70,6 +71,7 @@ export class SignUpForm extends React.Component {
           validate={[required, matchesPassword, nonEmpty]}
         />
         <button
+          className="login-button"
           disabled={this.props.pristine || this.props.submitting}>
           Sign Up
         </button>

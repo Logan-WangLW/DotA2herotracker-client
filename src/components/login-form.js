@@ -11,7 +11,7 @@ export class LogInForm extends React.Component {
 
   render() {
     if (this.props.submitSucceeded) {
-      return <Redirect to="/favorites" />
+      return <Redirect to="/heroes" />
     }
     let error;
     if (this.props.error) {
@@ -23,6 +23,7 @@ export class LogInForm extends React.Component {
     }
     return (
       <form
+        className="login-form"
         onSubmit={this.props.handleSubmit}>
         {error}
         <label htmlFor="username">Username</label>
@@ -43,7 +44,7 @@ export class LogInForm extends React.Component {
           id="password"
           validate={[required, nonEmpty, isTrimmed]}
         />
-        <button disabled={this.props.pristine || this.props.submitting}>
+        <button className="login-button" disabled={this.props.pristine || this.props.submitting}>
           Log in
         </button>
       </form>

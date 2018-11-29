@@ -4,6 +4,7 @@ import heroReducer from './reducers/heroes';
 import authReducer from './reducers/auth';
 import favoriteReducer from './reducers/favorites';
 import protectedDataReducer from './reducers/protected-data';
+import matchupsReducer from './reducers/matchups';
 import thunk from 'redux-thunk';
 import { setAuthToken, refreshAuthToken } from './actions/auth.js';
 import { loadAuthToken } from './local-storage';
@@ -15,7 +16,8 @@ const store = createStore(
     auth: authReducer,
     protectedData: protectedDataReducer,
     heroes: heroReducer,
-    favorites: favoriteReducer
+    favorites: favoriteReducer,
+    matchups: matchupsReducer
   }),
   composeWithDevTools(applyMiddleware(thunk))
 );

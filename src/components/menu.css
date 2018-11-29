@@ -1,5 +1,10 @@
 .nav-menu{
-
+  margin-left: auto;
+  margin-right: auto;
+  width: 20rem;
+}
+.nav-menu ul{
+  list-style: none;
 }
 .nav-menu a{
   float: left;

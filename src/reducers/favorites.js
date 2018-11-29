@@ -58,7 +58,7 @@ export default (state = initialState, action) => {
   } else if (action.type === FETCH_FAVORITES_MATCHUPS_SUCCESS) {
     return Object.assign({}, state, {
       loading: false,
-      matchups: action.matchups
+      matchups: [action.matchups, ...state.matchups]
     })
   } else if (action.type === FETCH_FAVORITES_MATCHUPS_ERROR) {
     return Object.assign({}, state, {

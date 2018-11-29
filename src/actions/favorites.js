@@ -108,7 +108,7 @@ export const fetchFavoritesMatchupsError = error => ({
 export const fetchFavoritesMatchups = (id) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchFavoritesRequest());
-  console.log('matchupid', id);
+  //console.log('matchupid', id);
   return fetch(`${API_BASE_URL}/heroes/${id}/matchups`, {
     method: 'GET',
     headers: {
@@ -119,7 +119,7 @@ export const fetchFavoritesMatchups = (id) => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(res => {
-      console.log('matchups', res);
+      //console.log('matchups', res);
       dispatch(fetchFavoritesMatchupsSuccess(res))
     })
     .catch(err => dispatch(fetchFavoritesMatchupsError(err)));

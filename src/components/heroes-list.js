@@ -2,8 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchHeroes } from '../actions/heroes';
 import { addFavoriteToUser, fetchFavorites } from '../actions/favorites';
-import star from '../images/empty-star.png';
-import emptyStar from '../images/star.png';
+import star from '../images/star.png';
+import emptyStar from '../images/empty.png';
+import agiImage from '../images/agi.png';
+import strImage from '../images/str.png';
+import intImage from '../images/int.png'
 
 import './heroes-list.css';
 class HeroesList extends React.Component {
@@ -17,7 +20,8 @@ class HeroesList extends React.Component {
   }
 
   addFavorite(id) {
-    return (this.props.dispatch(addFavoriteToUser(id)),
+    return (
+      this.props.dispatch(addFavoriteToUser(id)),
       this.props.dispatch(fetchFavorites()));
   }
 
@@ -28,7 +32,7 @@ class HeroesList extends React.Component {
 
 
     let userFavoritesArray = this.props.userFavorites.map((fav) => Number(fav.heroes));
-    console.log(userFavoritesArray);
+    //console.log(userFavoritesArray);
 
     //get state of recently added hero
     let addedHero = this.state.addedHero;
@@ -52,12 +56,9 @@ class HeroesList extends React.Component {
         return (
           <div className="hero-box" key={hero.id}>
             <img className="hero-image" src={`https://api.opendota.com${hero.img}`} alt={hero.localized_name} ></img>
-            <img src={isFavorite ? star : emptyStar} alt="StarImage" onClick={() => {
-              // console.log('userFavoritesArray', userFavoritesArray);
-              // console.log('hero.id', hero.id);
+            <img className="favorite-star" src={isFavorite ? star : emptyStar} alt="StarImage" onClick={() => {
               if (!userFavoritesArray.includes(hero.id)) {
                 this.addFavorite(hero.id);
-                //this.addAddedHero(hero.localized_name);
                 this.setState({ addedHero: hero.localized_name });
                 this.topFunction();
               }
@@ -71,7 +72,7 @@ class HeroesList extends React.Component {
       })
 
       return acc
-    }, { str: { title: 'STRENGTH', data: [] }, agi: { title: 'AGILITY', data: [] }, int: { title: 'INTELLIGENCE', data: [] } })
+    }, { str: { title: 'STRENGTH', data: [], img: strImage }, agi: { title: 'AGILITY', data: [], img: agiImage }, int: { title: 'INTELLIGENCE', data: [], img: intImage } })
 
 
     if (this.props.user) {
@@ -82,8 +83,8 @@ class HeroesList extends React.Component {
           <div>
             {Object.keys(heroes).map(el => (
               <div key={el}>
-                <h3>{heroes[el].title}</h3>
-                <div>{heroes[el].data}</div>
+                <h3><img src={heroes[el].img} alt="attribute"></img>{heroes[el].title}</h3>
+                <div className="heroes-grid">{heroes[el].data}</div>
               </div>
             ))}
           </div>

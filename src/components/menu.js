@@ -16,10 +16,12 @@ export class Menu extends React.Component {
     if (this.props.user) {
       return (
         <nav className="nav-menu">
-          <p id="home-button"><Link to={'/'}>Login/Register</Link></p>
-          <p id="heroes-button"><Link to={'/heroes'}> Heroes </Link> </p>
-          <p id="my-favorites-button"><Link to={'/favorites'}>My Favorites</Link></p>
-          <p id="logout-button" onClick={() => this.logOut()}><Link to={'/'}>Sign Out</Link></p>
+          <ul>
+            <li id="home-button"><Link to={'/'}>Login/Register</Link></li>
+            <li id="heroes-button"><Link to={'/heroes'}> Heroes </Link> </li>
+            <li id="my-favorites-button"><Link to={'/favorites'}>My Favorites</Link></li>
+            <li id="logout-button" onClick={() => this.logOut()}><Link to={'/'}>Sign Out</Link></li>
+          </ul>
         </nav>
       )
     }
