@@ -51,39 +51,52 @@ export class Moreinfo extends React.Component {
     }
     let bestAgainst;
 
-    //best against
-    bestAgainst = highwinrateid.map(hero => {
+    if (heroesArray.length > 0) {
+      //best against
+      bestAgainst = highwinrateid.map(hero => {
 
-      let heroAgainst = heroesArray.find(heroId => heroId.id === hero);
-      return (
-        <li key={hero}>
-          <div className="best-against">
-            <img className="best-against-img" src={`https://api.opendota.com${heroAgainst.img}`} alt={heroAgainst.localized_name} />
-          </div>
-        </li>
-      )
-    })
+        let heroAgainst = heroesArray.find(heroId => heroId.id === hero);
+        return (
+          <li key={hero}>
+            <div className="best-against">
+              <img className="best-against-img" src={`https://api.opendota.com${heroAgainst.img}`} alt={heroAgainst.localized_name} />
+            </div>
+          </li>
+        )
+      })
+    } else {
+      bestAgainst = 'loading';
+    }
     //worst against
     let worstAgainst;
-    worstAgainst = lowwinrateid.map(hero => {
+    if (heroesArray.length > 0) {
+      worstAgainst = lowwinrateid.map(hero => {
 
-      let heroAgainst = heroesArray.find(heroId => heroId.id === hero);
-      return (
-        <li key={hero}>
-          <div className="worst-against">
-            <img className="worst-against-img" src={`https://api.opendota.com${heroAgainst.img}`} alt={heroAgainst.localized_name} />
-          </div>
-        </li>
-      )
-    })
+        let heroAgainst = heroesArray.find(heroId => heroId.id === hero);
+        return (
+          <li key={hero}>
+            <div className="worst-against">
+              <img className="worst-against-img" src={`https://api.opendota.com${heroAgainst.img}`} alt={heroAgainst.localized_name} />
+            </div>
+          </li>
+        )
+      })
+    } else {
+      worstAgainst = 'loading';
+    }
 
     return (
       <div className="hero-info-box">
-        <h1>{this.state.hero.localized_name}</h1>
-        <img className="favorite-hero-img" src={`https://api.opendota.com${this.state.hero.img}`} alt={this.state.hero.localizedname} />
-        <ul className="roles-list">Roles:{heroRoles}</ul>
-        <ul className="winrate-heroes">Best against:{bestAgainst}</ul>
-        <ul className="winrate-heroes">Worst against:{worstAgainst}</ul>
+        <div id="hero-info-box-left">
+          <h1>{this.state.hero.localized_name}</h1>
+
+          <img id="moreinfo-hero-img" src={`https://api.opendota.com${this.state.hero.img}`} alt={this.state.hero.localizedname} />
+          <ul className="roles-list">Roles:{heroRoles}</ul>
+        </div>
+        <div id="hero-info-box-right">
+          <ul className="winrate-heroes">Best against:{bestAgainst}</ul>
+          <ul className="winrate-heroes">Worst against:{worstAgainst}</ul>
+        </div>
       </div>
     )
   }

@@ -1,16 +1,24 @@
 .hero-info-box{
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    width: 70%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 .hero-info-box h1{
   text-align: center;
+  margin: 0;
 }
 
 .hero-info-box ul{
-  display:table; margin:0 auto;
+  display: table; 
+  margin:0 auto;
 }
-
+#moreinfo-hero-img{
+  display: block;
+  margin: 0 auto;
+}
 .winrate-heroes{
   list-style:none;
   padding-left:0px;
@@ -18,34 +26,40 @@
 .best-against-img{
   display: block;
   margin: 0 auto;
-
+  margin-bottom: 10px;
 }
 .worst-against-img{
   display: block;
   margin: 0 auto;
-
 }
+
 
 @media only screen and (max-width: 576px) {
   .hero-info-box h1{
     text-align: center;
     font-size: 75%;
-    margin-top: 30px;
   }
   .roles-list{
+    display:block;
     font-size: 75%;
+    clear:both;
   }
   
   .best-against-img{
     display: block;
 		margin: 0 auto;
-    height: 50%;
-    width:50%;
+    height: 80%;
+    width: 80%;
   }
   .worst-against-img{
     display: block;
 		margin: 0 auto;
-    height: 50%;
-    width:50%;
+    height: 80%;
+    width:80%;
+  }
+
+  #moreinfo-hero-img{
+    display: block;
+    margin: 0 auto;
   }
 }

@@ -96,8 +96,8 @@ class HeroesList extends React.Component {
         <div>
           {Object.keys(heroes).map(el => (
             <div key={el}>
-              <h3>{heroes[el].title}</h3>
-              <div>{heroes[el].data}</div>
+              <h3><img src={heroes[el].img} alt="attribute"></img>{heroes[el].title}</h3>
+              <div className="heroes-grid">{heroes[el].data}</div>
             </div>
           ))}
         </div>
