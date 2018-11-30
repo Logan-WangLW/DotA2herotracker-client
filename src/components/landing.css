@@ -1,7 +1,13 @@
+.home-page-box {
+  margin-left: auto;
+  margin-right: auto;
+  width: 20rem;
+}
 .home-buttons button{
   display: block;
   margin-left: auto;
   margin-right: auto;
+  
 }
 .login-button{
   margin-bottom: 25px;

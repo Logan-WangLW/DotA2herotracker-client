@@ -24,10 +24,6 @@ export class Moreinfo extends React.Component {
       })
   }
 
-  getMatchups(id) {
-    this.props.dispatch(fetchFavoritesMatchups(id))
-  }
-
   render() {
     //check if theres an object in state.hero
     if (!this.state.hero) {
@@ -53,37 +49,51 @@ export class Moreinfo extends React.Component {
       highwinrateid.push(this.props.matchups[0][0].highwinrateid);
       lowwinrateid.push(this.props.matchups[0][0].lowwinrateid);
     }
-
-    //best against
     let bestAgainst;
-    if (heroesArray.length > 0) {
-      bestAgainst = highwinrateid.map(hero => {
-
-        let heroAgainst = heroesArray.find(heroId => heroId.id === hero);
-        return (
-          <li key={hero}>
-            <div className="best-against">
-              <img className="best-against-img" src={`https://api.opendota.com${heroAgainst.img}`} alt={heroAgainst.localized_name} />
-            </div>
-          </li>
-        )
-      })
-    }
     let worstAgainst;
-    if (heroesArray.length > 0) {
-      worstAgainst = lowwinrateid.map(hero => {
+    //best against
+    if (!this.props.loading) {
 
-        let heroAgainst = heroesArray.find(heroId => heroId.id === hero);
-        return (
-          <li key={hero}>
-            <div className="worst-against">
-              <img className="worst-against-img" src={`https://api.opendota.com${heroAgainst.img}`} alt={heroAgainst.localized_name} />
-            </div>
-          </li>
-        )
-      })
+      if (heroesArray.length > 0) {
+        bestAgainst = highwinrateid.map(hero => {
+
+          let heroAgainst = heroesArray.find(heroId => heroId.id === hero);
+          return (
+            <li key={hero}>
+              <div className="best-against">
+                <img className="best-against-img" src={`https://api.opendota.com${heroAgainst.img}`} alt={heroAgainst.localized_name} />
+              </div>
+            </li>
+          )
+        })
+      }
+
+      if (heroesArray.length > 0) {
+        worstAgainst = lowwinrateid.map(hero => {
+
+          let heroAgainst = heroesArray.find(heroId => heroId.id === hero);
+          return (
+            <li key={hero}>
+              <div className="worst-against">
+                <img className="worst-against-img" src={`https://api.opendota.com${heroAgainst.img}`} alt={heroAgainst.localized_name} />
+              </div>
+            </li>
+          )
+        })
+      }
+    } else {
+      return (
+        <div className="hero-info-box">
+          <h1>{this.state.hero.localized_name}</h1>
+          <img className="favorite-hero-img" src={`https://api.opendota.com${this.state.hero.img}`} alt={this.state.hero.localizedname} />
+          <ul className="roles-list">Roles:{heroRoles}</ul>
+          <ul className="winrate-heroes">Best against:
+          Loading... </ul>
+          <ul className="winrate-heroes">Worst against:
+          Loading...</ul>
+        </div>
+      )
     }
-
 
     return (
       <div className="hero-info-box">
@@ -98,7 +108,8 @@ export class Moreinfo extends React.Component {
 }
 const mapStateToProps = state => ({
   heroes: state.heroes.heroes,
-  matchups: state.favorites.matchups
+  matchups: state.favorites.matchups,
+  loading: state.favorites.loading
 })
 
 export default connect(mapStateToProps)(Moreinfo);

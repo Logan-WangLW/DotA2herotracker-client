@@ -3,7 +3,7 @@ import { reducer as formReducer } from 'redux-form';
 import heroReducer from './reducers/heroes';
 import authReducer from './reducers/auth';
 import favoriteReducer from './reducers/favorites';
-import protectedDataReducer from './reducers/protected-data';
+
 import matchupsReducer from './reducers/matchups';
 import thunk from 'redux-thunk';
 import { setAuthToken, refreshAuthToken } from './actions/auth.js';
@@ -14,7 +14,6 @@ const store = createStore(
   combineReducers({
     form: formReducer,
     auth: authReducer,
-    protectedData: protectedDataReducer,
     heroes: heroReducer,
     favorites: favoriteReducer,
     matchups: matchupsReducer
@@ -22,7 +21,7 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-//Hydrate the authToken from localStorage if it exist
+//Hydrate authToken
 const authToken = loadAuthToken();
 
 if (authToken) {

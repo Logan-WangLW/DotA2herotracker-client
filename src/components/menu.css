@@ -6,6 +6,7 @@
 .nav-menu ul{
   list-style: none;
 }
+
 .nav-menu a{
   float: left;
   color: #f2f2f2;
@@ -13,10 +14,13 @@
   margin-right: 25px;
   text-decoration: none;
   font-size: 17px;
+  list-style-position:inside;
+  border: 1px solid black;
 }
 
 .nav-menu a:hover{
-  background-color: black;
+
+  font-weight: 500;
 }
 
 .nav-menu a:active {

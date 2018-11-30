@@ -27,9 +27,11 @@ export class Menu extends React.Component {
     }
     return (
       <nav className="nav-menu">
-        <p id="home-button"><Link to={'/'}>Login/Register</Link></p>
-        <p id="heroes-button"><Link to={'/heroes'}> Heroes </Link> </p>
-        <p id="my-favorites-button"><Link to={'/favorites'}>My Favorites</Link></p>
+        <ul>
+          <li id="home-button"><Link to={'/'}>Login/Register</Link></li>
+          <li id="heroes-button"><Link to={'/heroes'}> Heroes </Link> </li>
+          <li id="my-favorites-button"><Link to={'/favorites'}>My Favorites</Link></li>
+        </ul>
       </nav>
     )
   }
