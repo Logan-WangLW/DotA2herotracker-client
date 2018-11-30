@@ -32,7 +32,7 @@ export const fetchFavorites = () => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(res => {
-      console.log('favorites fetched')
+      //console.log('favorites fetched')
       dispatch(fetchFavoritesSuccess(res))
     })
     .catch(err => dispatch(fetchFavoritesError(err)));

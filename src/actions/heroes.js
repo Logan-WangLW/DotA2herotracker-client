@@ -29,7 +29,7 @@ export const fetchHeroes = () => dispatch => {
     )
     .then(heroes => {
 
-      console.log('heroes fetched')
+      //console.log('heroes fetched')
       dispatch(fetchHeroesSuccess(heroes))
     }
     )
@@ -65,7 +65,7 @@ export const fetchHero = (id) => dispatch => {
     )
     .then(heroes => {
 
-      console.log('heroes fetched')
+      //console.log('heroes fetched')
       dispatch(fetchHeroesSuccess(heroes))
     }
     )
