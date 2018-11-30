@@ -33,12 +33,12 @@ export class Landing extends React.Component {
     return (
       <div className="home-buttons">
         <button
-          className="login-button"
+          className="toggle-login-button"
           type="button"
           onClick={() => this.showLogin()}>Log In</button>
         {!this.state.LoginHidden && <LoginForm />}
         <button
-          className="login-button"
+          className="toggle-login-button"
           type="button"
           onClick={() => this.showRegister()}>Sign Up</button>
         {!this.state.RegisterHidden && <RegisterForm />}
