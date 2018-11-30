@@ -22,6 +22,7 @@ export class Menu extends React.Component {
             <li id="my-favorites-button"><Link to={'/favorites'}>My Favorites</Link></li>
             <li id="logout-button" onClick={() => this.logOut()}><Link to={'/'}>Sign Out</Link></li>
           </ul>
+
         </nav>
       )
     }
@@ -32,6 +33,7 @@ export class Menu extends React.Component {
           <li id="heroes-button"><Link to={'/heroes'}> Heroes </Link> </li>
           <li id="my-favorites-button"><Link to={'/favorites'}>My Favorites</Link></li>
         </ul>
+
       </nav>
     )
   }

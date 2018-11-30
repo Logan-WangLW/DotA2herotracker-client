@@ -1,7 +1,7 @@
 .heroes-table{
   margin-left: auto;
   margin-right: auto;
-  width: 20rem;
+  width: 100%;
 }
 .heroes-table h2{
   text-align: center;
@@ -9,7 +9,6 @@
 .heroes-table h3{
   text-align: center;
 }
-
 .heroes-grid{
 
 }
@@ -42,3 +41,13 @@
   background-color:transparent;
 }
 
+@media only screen and (max-width: 576px) {
+  .heroes-table h2{
+    text-align: center;
+    font-size: 75%;
+  }
+  .heroes-table h3{
+    text-align: center;
+    font-size: 75%;
+  }
+}

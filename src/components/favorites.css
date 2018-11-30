@@ -1,7 +1,7 @@
 .favorites-box{
   margin-left: auto;
   margin-right: auto;
-  width: 20rem;
+  width: 100%;
 }
 .favorites-box h1{
   text-align: center;
@@ -100,4 +100,20 @@
 #delete-favorite-button:active {
 	position:relative;
 	top:1px;
+}
+@media only screen and (max-width: 576px) {
+	.favorites-box h1{
+		text-align: center;
+		font-size: 80%;
+	}
+	.favorites-box p{
+		text-align: center;
+		font-size: 75%;
+	}
+	.favorite-hero-img{
+		display: block;
+		margin: 0 auto;
+		width: 50%;
+		height: 50%;
+	}
 }
