@@ -28,7 +28,13 @@ https://dota2tracker-client.herokuapp.com/
 * MongoDB for database
 - - - 
 ### Key parts in the codebase
-* All components is in the src/components folder
-## Root Directory: 
+#### Components:
+* favorites component contains the favorites page of the user
+* header component sets up the header for use on every other component => menu is a child
+* login-form, register-form and landing-info are all linked to the landing page which is a home page
+* heroes-list component contains a list of the heroes
+#### Root Directory: 
 * Parent component is Home.js. It sets up react-router to link between the different pages
 * Store.js stores primary source of information and combines reducers
+#### Actions/Reducers: 
+* Contains the auth, favorites, heroes actions/reducers which help retrieve, sendback, update and delete 
