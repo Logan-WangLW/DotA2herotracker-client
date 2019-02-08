@@ -16,6 +16,9 @@ An App that lets user's login and select their favorite heroes in DotA2
 
 Deployed through heroku:
 https://dota2tracker-client.herokuapp.com/
+
+
+![Screenshot](/docs/images/screenshot-heroes.PNG)
 - - - 
 
 ### Tech stack
