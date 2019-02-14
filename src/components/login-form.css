@@ -7,10 +7,10 @@
 	padding-left: 10px;
 }
 #password{
-	padding-right: 10px;
+	padding-left: 10px;
 }
 #passwordConfirm{
-	padding-right: 10px;
+	padding-left: 10px;
 }
 .login-button {
 	-moz-box-shadow:inset 0px 1px 0px 0px #a4e271;
