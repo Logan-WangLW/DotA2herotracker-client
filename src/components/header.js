@@ -13,7 +13,7 @@ export default class Header extends React.Component {
       <div className="header-box">
         <div className="header-content">
           <img id="dota2_logo" src={logo} alt="dota2 logo"></img>
-          <h1 className="header-title">Hero Tracker</h1>
+          <h1 className="header-title">Dota 2 Hero Tracker</h1>
         </div>
 
         <Menu />
