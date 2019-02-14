@@ -39,8 +39,8 @@
 .favorite-star{
   position: absolute;
   cursor: pointer;
-  top: 0;
-  left: 52px;
+  top: 0px;
+  left: 50px;
   background-color:transparent;
 }
 

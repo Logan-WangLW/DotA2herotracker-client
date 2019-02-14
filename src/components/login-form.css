@@ -3,7 +3,15 @@
   text-align: center;
   margin-bottom: 25px;
 }
-
+#username{
+	padding-left: 10px;
+}
+#password{
+	padding-right: 10px;
+}
+#passwordConfirm{
+	padding-right: 10px;
+}
 .login-button {
 	-moz-box-shadow:inset 0px 1px 0px 0px #a4e271;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #a4e271;

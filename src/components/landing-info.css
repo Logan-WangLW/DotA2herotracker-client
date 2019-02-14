@@ -4,8 +4,14 @@
   margin-left: auto;
   margin-right: auto;
 }
-.home-information a{
-  color: #0000EE;
+.home-information a:link{
+  color: red;
+}
+.home-information a:visited{
+  color: darkred;
+}
+.home-information a:hover{
+  color: darkred;
 }
 @media only screen and (max-width: 576px) {
   .home-information p{
