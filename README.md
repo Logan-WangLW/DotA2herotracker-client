@@ -1,10 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## DotA2 Hero Tracker
+## Dota 2 Hero Tracker
 
 ### App description
 
-An App that lets user's login and select their favorite heroes in DotA2
+An App that lets user's login and select their favorite heroes in Dota 2
 * Uses the OpenDotA API to retrieve information about heroes
 * Create user account
 * Login
