@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Dota 2 Hero Tracker
 
 ### App description
@@ -22,7 +20,7 @@ https://dota2tracker-client.herokuapp.com/
 - - - 
 
 ### Tech stack
-
+Server: https://github.com/Logan-WangLW/DotA2herotracker-server
 * React on the client side
 * Redux for state management
 * Redux-form for form manage
